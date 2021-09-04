@@ -1,14 +1,15 @@
 import React from "react";
-import styles from "./QuoteMessage.css";
+import"./QuoteMessage.css";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PropTypes from 'prop-types';
 
 class CategoryButton extends React.Component
 {
   render()
   {
     let variant;
-    if(this.props.parentState.category === this.props.children.toLowerCase())
+    if(this.props.category === this.props.children.toLowerCase())
     {
       variant = 'primary';
     }
@@ -20,6 +21,10 @@ class CategoryButton extends React.Component
       <Button style={{ margin: '3px'}} onClick={this.props.onClick} variant={variant}>{this.props.children}</Button>
     );
   }
+}
+CategoryButton.propTypes = {
+  category: PropTypes.func,
+  onClick: PropTypes.func
 }
 
 class QuoteMessage extends React.Component
@@ -42,6 +47,9 @@ class QuoteMessage extends React.Component
       category: newCategory
     });
     this.getNewQuote();
+  }
+  getCategory(){
+    return this.state.category;
   }
   getNewQuote(){
     const settings = {
@@ -69,15 +77,15 @@ class QuoteMessage extends React.Component
     );
   }
   render(){
-    console.log(styles)
+    
     return (<div style={{textAlign:'center'}}>
       <h1>Inspirational Quotes</h1>
       <summary>Select a category</summary><hr/>
-      <CategoryButton onClick={this.setCategory} key='Communication' parentState={this.state}>Communication</CategoryButton>
-      <CategoryButton onClick={this.setCategory} key='Business' parentState={this.state}>Business</CategoryButton>
-      <CategoryButton onClick={this.setCategory} key='Success' parentState={this.state}>Success</CategoryButton>
-      <CategoryButton onClick={this.setCategory} key='Dating' parentState={this.state}>Dating</CategoryButton>
-      <CategoryButton onClick={this.setCategory} key='Funny' parentState={this.state}>Funny</CategoryButton>
+      <CategoryButton key='Communication'>Communication</CategoryButton>
+      <CategoryButton key='Business'>Business</CategoryButton>
+      <CategoryButton key='Success'>Success</CategoryButton>
+      <CategoryButton key='Dating'>Dating</CategoryButton>
+      <CategoryButton key='Funny'>Funny</CategoryButton>
       <div className='fadeInText' id='quote-box' style={{backgroundColor: 'lightgrey',margin: "10px 10%", borderRadius:"5px", padding: '5px'}}>
       <h2 id='author'>          
         {this.state.author}
@@ -90,5 +98,9 @@ class QuoteMessage extends React.Component
         <Button style={{position:'absolute',left:'50%',top:300}} id="new-quote" variant='success' onClick={this.getNewQuote}>New Quote!</Button>
      </div>);
   }
+}
+CategoryButton.defaultProps = {
+  onClick: QuoteMessage.prototype.setCategory,
+  category: QuoteMessage.prototype.getCategory
 }
 export default QuoteMessage;
