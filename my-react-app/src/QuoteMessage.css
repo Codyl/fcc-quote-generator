@@ -1,0 +1,32 @@
+.fadeInText {
+    animation: fadeIn linear 300ms;
+    -webkit-animation: fadeIn linear 300ms;
+    -moz-animation: fadeIn linear 300ms;
+    -o-animation: fadeIn linear 300ms;
+    -ms-animation: fadeIn linear 300ms;
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
