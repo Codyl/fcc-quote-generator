@@ -23,7 +23,7 @@ class CategoryButton extends React.Component
   }
 }
 CategoryButton.propTypes = {
-  category: PropTypes.func,
+  category: PropTypes.string,
   onClick: PropTypes.func
 }
 
@@ -53,23 +53,21 @@ class QuoteMessage extends React.Component
   }
   getNewQuote(){
     const settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://famous-quotes4.p.rapidapi.com/random?category=travel&count=1",
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-key": process.env.REACT_APP_quoteAPIKey,
-      "x-rapidapi-host": "famous-quotes4.p.rapidapi.com"
-    }
-  };
+      "async": true,
+      "crossDomain": true,
+      "url": "https://famous-quotes4.p.rapidapi.com/random?category=travel&count=1",
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": process.env.REACT_APP_quoteAPIKey,
+        "x-rapidapi-host": "famous-quotes4.p.rapidapi.com"
+      }
+    };
     fetch('https://famous-quotes4.p.rapidapi.com/random?category='+this.state.category+'&count=1',settings)
     .then(response => response.json())
     .then(data => {
        this.setState({author: data[0].author, text: data[0].text});
-    }).then(
-      () =>
-      {
-
+    })
+    .then(() => {
         document.getElementById('quote-box').classList.remove("fadeInText");
         void document.getElementById('quote-box').offsetWidth;
         document.getElementById('quote-box').classList.add("fadeInText");
@@ -77,7 +75,10 @@ class QuoteMessage extends React.Component
     );
   }
   render(){
-    
+    CategoryButton.defaultProps = {
+      onClick: this.setCategory,
+      category: this.getCategory()
+    }
     return (<div style={{textAlign:'center'}}>
       <h1>Inspirational Quotes</h1>
       <summary>Select a category</summary><hr/>
@@ -99,8 +100,5 @@ class QuoteMessage extends React.Component
      </div>);
   }
 }
-CategoryButton.defaultProps = {
-  onClick: QuoteMessage.prototype.setCategory,
-  category: QuoteMessage.prototype.getCategory
-}
+
 export default QuoteMessage;
