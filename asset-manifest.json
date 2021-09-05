@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/FCCQuoteGenerator/static/css/main.560631a1.chunk.css",
+    "main.css": "/FCCQuoteGenerator/static/css/main.6a74ee49.chunk.css",
     "main.js": "/FCCQuoteGenerator/static/js/main.9a6180f3.chunk.js",
     "main.js.map": "/FCCQuoteGenerator/static/js/main.9a6180f3.chunk.js.map",
     "runtime-main.js": "/FCCQuoteGenerator/static/js/runtime-main.5d499028.js",
@@ -12,14 +12,14 @@
     "static/js/3.b0f677fc.chunk.js.map": "/FCCQuoteGenerator/static/js/3.b0f677fc.chunk.js.map",
     "index.html": "/FCCQuoteGenerator/index.html",
     "static/css/2.c490997a.chunk.css.map": "/FCCQuoteGenerator/static/css/2.c490997a.chunk.css.map",
-    "static/css/main.560631a1.chunk.css.map": "/FCCQuoteGenerator/static/css/main.560631a1.chunk.css.map",
+    "static/css/main.6a74ee49.chunk.css.map": "/FCCQuoteGenerator/static/css/main.6a74ee49.chunk.css.map",
     "static/js/2.ba94e1c0.chunk.js.LICENSE.txt": "/FCCQuoteGenerator/static/js/2.ba94e1c0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5d499028.js",
     "static/css/2.c490997a.chunk.css",
     "static/js/2.ba94e1c0.chunk.js",
-    "static/css/main.560631a1.chunk.css",
+    "static/css/main.6a74ee49.chunk.css",
     "static/js/main.9a6180f3.chunk.js"
   ]
 }
